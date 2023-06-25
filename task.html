@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account</title>
+    <link rel="stylesheet" href="task.css"> 
+  </head>
+  <body>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Library</title>
+      <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+      <header>
+        <h1>Create your Book List </h1>
+      </header>
+    
+      <main>
+        <section id="addNewBookDiv">
+          <h2>Add a Book</h2>
+          <form>
+            <div class="form-group">
+              <label for="bookName">Name</label>
+              <input type="text" id="bookName" required>
+            </div>
+            <div class="form-group">
+              <label for="file">Picture</label>
+              <input type="file" id="file" required>
+            </div>
+            <div class="form-group">
+              <label for="Description">Description</label>
+              <input type="text" id="Description" required>
+            </div>
+            <div class="form-group">
+              <label for="Price">Price</label>
+              <textarea id="Price" required></textarea>
+            </div>
+            <button id="addBookBtn">Add</button>
+          </form>
+        </section>
+    
+        <section id="savedBookDiv"></section>
+    
+        <div id="bookModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalBookName"></h2>
+            <p id="modalDescription"></p>
+            <p id="modalPrice"></p>
+            <button id="deleteBtn">Delete Book</button>
+          </div>
+        </div>
+    
+        <div id="confirmationPopup" class="modal">
+          <div class="modal-content">
+            <p>Are you sure you want to delete this Book?</p>
+            <button id="confirmDeleteBtn">Confirm</button>
+            <button id="cancelDeleteBtn">Cancel</button>
+          </div>
+        </div>
+      </main>
+    
+      <footer>
+        <p>&copy; 2023 Add book list. All rights reserved.</p>
+      </footer>
+    
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>  
+     <script src="script.js"></script>
+      
+     
+
+
+    </script>
+  </body>
+</html>

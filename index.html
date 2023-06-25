@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="signstyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="banner">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start shopping with us</p>
+        </div>
+        <div class="green-bg">
+          <div id="country"></div>
+
+          <button type="button">Let's Start!</button>
+        </div>
+        <ul id="weatherAPI">
+          <div id="country"></div>
+        <div id="author"></div>
+        
+        </ul>
+        <form class="signup-form" id="login">
+          <h1>Create Account</h1>
+          <div class="social-media">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <p>or use your email for registration</p>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <div id="country"></div>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="LoginEmail" placeholder="Email" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="LoginPassword" placeholder="Password" required />
+          </div>
+          <a href="index.html">
+          <button type="submit" >Login</button>
+        </a>
+        <a href="register.html">
+          New User? Click here for register.
+        </a>
+        <a href="task.html">
+          Add Book.
+        </a>
+          
+      </form>
+      </div>
+    </div> 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const container = document.querySelector(".container");
+      const signUpBtn = document.querySelector(".green-bg button");
+    
+      signUpBtn.addEventListener("click", () => {
+        container.classList.toggle("change");
+      });   
+      
+      });
+      </script>    
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>  
+           <script src="script.js">
+            
+           </script>
+   
+   <script>
+           const  firebaseConfig = {
+   apiKey: "AIzaSyAEAB_u-FX0jBDBaA8-w3B3s6l647dBDUg",
+   authDomain: "login-6cc5e.firebaseapp.com",
+   projectId: "login-6cc5e",
+   storageBucket: "login-6cc5e.appspot.com",
+   messagingSenderId: "531367313044",
+   appId: "1:531367313044:web:7c57c48b77b2d63690fe81",
+   measurementId: "G-TCE7760WX4"
+  };
+  
+       firebase.initializeApp(firebaseConfig);
+       
+   
+      //Login Code
+      document.getElementById("login").addEventListener("submit",function(e){
+      e.preventDefault()
+    
+      var email=document.getElementById("LoginEmail").value;
+      var password=document.getElementById("LoginPassword").value;
+      firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential)=>{
+        const user=userCredential.user;
+        console.log(user);
+        alert("Login Successfull!!");
+        document.getElementById("logout").style.display='block';
+      })
+      .catch((error)=>{
+          const errorCode=error.code;
+          const errorMessage=error.message;
+          console.log(errorMessage);
+          alert(error);
+      });
+    });
+  
+    // //logout code 
+    
+    //   //Login Code
+    //   document.getElementById("logout").addEventListener("click",function(){
+    //   signOut(auth).then(()=>{
+    //     console.log('Sign-out successful');
+    //     alert('Sign-out successful');
+    //     document.getElementById('logout').style.display='none';
+  
+    //   }).catch((error)=>{
+  
+    //     console.log('An error happened.');
+    //   });
+    // }); 
+  </script>   
+    </body>
+
+</html>
